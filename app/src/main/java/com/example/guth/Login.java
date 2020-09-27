@@ -2,6 +2,9 @@ package com.example.guth;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -16,24 +19,50 @@ public class Login extends AppCompatActivity {
         setTitle("Login");
         setContentView(R.layout.login);
 
-        Button btnRegistrar = (Button)findViewById(R.id.submit);
-        btnRegistrar.setOnClickListener(btnSubmit);
+        Button btnSubmit = (Button)findViewById(R.id.submit);
+        btnSubmit.setOnClickListener(submit);
+
+        Button btnRegister = (Button)findViewById(R.id.register);
+        btnRegister.setOnClickListener(register);
     }
 
-    private View.OnClickListener btnSubmit = new View.OnClickListener() {
+    private View.OnClickListener submit = new View.OnClickListener() {
+        @Override
+        public void onClick(View view)
+        {
+            //Obtenemos los objetos
+            TextView userTextView = (TextView)findViewById(R.id.inputUser);
+            TextView passwordTextView = (TextView)findViewById(R.id.inputPassword);
+
+            String user = userTextView.getText().toString();
+            String password = passwordTextView.getText().toString();
+            String error = "";
+            if(user.equals("") || password.equals("")){
+                error = "Usuario y password requeridos";
+            }else {
+                SqlHelper dbHelper = new SqlHelper(view.getContext());
+                SQLiteDatabase db = dbHelper.getWritableDatabase();
+                Cursor c = db.rawQuery("SELECT id FROM usuarios WHERE usuario = ? AND password = ?", new String[] {user,password});
+                if (c.moveToFirst()) {
+                    do {
+                        int id = c.getInt(0);
+                        error = id + "";
+                    } while (c.moveToNext());
+                } else {
+                    error = "Credenciales incorrectas";
+                }
+                c.close();
+            }
+            Toast toast = Toast.makeText(view.getContext(), error, Toast.LENGTH_SHORT);
+            toast.show();
+        }
+    };
+
+    private View.OnClickListener register = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-            //Obtenemos los objetos
-            TextView user = (TextView)findViewById(R.id.inputUser);
-            TextView password = (TextView)findViewById(R.id.inputPassword);
-
-            if(user.getText().toString().equals("") || password.getText().toString().equals("")){
-                Toast toast = Toast.makeText(view.getContext(), "Usuario y password requeridos", Toast.LENGTH_SHORT);
-                toast.show();
-            }else{
-                Toast toast = Toast.makeText(view.getContext(), "OK", Toast.LENGTH_SHORT);
-                toast.show();
-            }
+            Intent intent = new Intent(view.getContext(), Register.class);
+            startActivity(intent);
         }
     };
 }
