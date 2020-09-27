@@ -5,7 +5,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 public class SqlHelper extends SQLiteOpenHelper {
-    private static final String COMMENTS_TABLE_CREATE = "CREATE TABLE usuarios(id INTEGER PRIMARY KEY AUTOINCREMENT, usuario TEXT, password TEXT, rol_id INTEGER)";
+    private static final String COMMENTS_TABLE_CREATE = "CREATE TABLE usuarios(id INTEGER PRIMARY KEY AUTOINCREMENT, usuario TEXT, password TEXT, tipo INTEGER)";
     private static final String DB_NAME = "guth.sqlite";
     private static final int DB_VERSION = 1;
 

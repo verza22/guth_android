@@ -42,19 +42,24 @@ public class Login extends AppCompatActivity {
             }else {
                 SqlHelper dbHelper = new SqlHelper(view.getContext());
                 SQLiteDatabase db = dbHelper.getWritableDatabase();
-                Cursor c = db.rawQuery("SELECT id FROM usuarios WHERE usuario = ? AND password = ?", new String[] {user,password});
+                Cursor c = db.rawQuery("SELECT tipo FROM usuarios WHERE usuario = ? AND password = ?", new String[] {user,password});
                 if (c.moveToFirst()) {
                     do {
-                        int id = c.getInt(0);
-                        error = id + "";
+                        int tipo = c.getInt(0);
+                        Intent intent = new Intent(view.getContext(), Home.class);
+                        intent.putExtra("usuario", user);
+                        intent.putExtra("tipo", tipo);
+                        startActivity(intent);
                     } while (c.moveToNext());
                 } else {
                     error = "Credenciales incorrectas";
                 }
                 c.close();
             }
-            Toast toast = Toast.makeText(view.getContext(), error, Toast.LENGTH_SHORT);
-            toast.show();
+            if(error!=""){
+                Toast toast = Toast.makeText(view.getContext(), error, Toast.LENGTH_SHORT);
+                toast.show();
+            }
         }
     };
 
