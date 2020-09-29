@@ -1,8 +1,10 @@
-package com.example.guth;
+package com.example.guth.Activities;
 
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.guth.R;
 
 public class Home  extends AppCompatActivity {
 

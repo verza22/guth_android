@@ -1,4 +1,4 @@
-package com.example.guth;
+package com.example.guth.Activities;
 
 import android.content.ContentValues;
 import android.content.Intent;
@@ -13,6 +13,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.guth.Others.SqlHelper;
+import com.example.guth.R;
 
 public class Register extends AppCompatActivity {
 

@@ -1,4 +1,4 @@
-package com.example.guth;
+package com.example.guth.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -10,6 +10,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.guth.R;
+import com.example.guth.Others.SqlHelper;
 
 public class Login extends AppCompatActivity {
 

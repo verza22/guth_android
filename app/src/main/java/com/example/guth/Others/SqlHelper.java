@@ -1,4 +1,4 @@
-package com.example.guth;
+package com.example.guth.Others;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
