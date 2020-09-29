@@ -1,4 +1,4 @@
-package com.example.guth.Activities.ui.home;
+package com.example.guth.Views;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
@@ -10,7 +10,7 @@ public class HomeViewModel extends ViewModel {
 
     public HomeViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is home fragment");
+        mText.setValue("Bienvenido");
     }
 
     public LiveData<String> getText() {

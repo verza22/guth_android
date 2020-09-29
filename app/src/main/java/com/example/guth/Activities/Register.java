@@ -75,7 +75,7 @@ public class Register extends AppCompatActivity {
                         cv.put("tipo",tipo);
                         db.insert("usuarios",null,cv);
 
-                        Intent intent = new Intent(view.getContext(), Home.class);
+                        Intent intent = new Intent(view.getContext(), Internal.class);
                         intent.putExtra("usuario", user);
                         intent.putExtra("tipo", tipo);
                         startActivity(intent);

@@ -49,7 +49,7 @@ public class Login extends AppCompatActivity {
                 if (c.moveToFirst()) {
                     do {
                         int tipo = c.getInt(0);
-                        Intent intent = new Intent(view.getContext(), Home.class);
+                        Intent intent = new Intent(view.getContext(), Internal.class);
                         intent.putExtra("usuario", user);
                         intent.putExtra("tipo", tipo);
                         startActivity(intent);

@@ -11,7 +11,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".Activities.Register" />
         <activity
-            android:name=".Activities.Home"
+            android:name=".Activities.Internal"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

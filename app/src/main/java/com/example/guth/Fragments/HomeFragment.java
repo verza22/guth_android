@@ -1,4 +1,4 @@
-package com.example.guth.Activities.ui.home;
+package com.example.guth.Fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -11,6 +11,8 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
+
+import com.example.guth.Views.HomeViewModel;
 import com.example.guth.R;
 
 
